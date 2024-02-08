@@ -16,7 +16,7 @@ services:
     networks:
       - hadoop-cluster
     volumes:
-      - ./hadoop-data/namenode:/hadoop-data/dfs/name
+      - namenode:/hadoop-data/dfs/name
   
   hadoopslave1:
     build: 
@@ -28,10 +28,18 @@ services:
     networks:
       - hadoop-cluster
     volumes:
-      - ./hadoop-data/datanode1:/hadoop-data/dfs/data
+      - datanode1:/hadoop-data/dfs/data
 
 
 networks:
   hadoop-cluster:
     driver: bridge
+  
+volumes:
+  namenode:
+    driver: local
+    name: namenodedata
+  datanode1:
+    driver: local
+    name: datanode1data
   
