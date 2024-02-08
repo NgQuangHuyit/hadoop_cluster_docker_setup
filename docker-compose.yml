@@ -1,0 +1,37 @@
+version: "2.1"
+
+services:
+  hadoopmaster:
+    build: 
+      context: ./namenode
+      dockerfile: Dockerfile
+    container_name: hadoopmaster
+    hostname: hadoopmaster
+    ports:
+      - 9870:9870
+      - 8088:8088
+      - 19888:19888
+    environment:
+      - CLUSTER_NAME=hadoop-cluster
+    networks:
+      - hadoop-cluster
+    volumes:
+      - ./hadoop-data/namenode:/hadoop-data/dfs/name
+  
+  hadoopslave1:
+    build: 
+      context: ./datanode
+      dockerfile: Dockerfile
+    container_name: hadoopslave1
+    environment:
+      - "HADOOP_MASTER=hadoopmaster"
+    networks:
+      - hadoop-cluster
+    volumes:
+      - ./hadoop-data/datanode1:/hadoop-data/dfs/data
+
+
+networks:
+  hadoop-cluster:
+    driver: bridge
+  
