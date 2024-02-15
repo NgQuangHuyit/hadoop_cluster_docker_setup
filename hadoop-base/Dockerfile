@@ -8,11 +8,11 @@ RUN  apt-get update && apt-get install -y \
 
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 
-ARG hadoop_version=3.3.6
+ARG hadoop_version=3.3.5
 
 ARG HADOOP_URL=https://downloads.apache.org/hadoop/common/hadoop-${hadoop_version}/hadoop-${hadoop_version}.tar.gz
 
-RUN curl -fsL ${HADOOP_URL} -o /tmp/hadoop-${hadoop_version}.tar.gz \
+RUN curl -fL ${HADOOP_URL} -o /tmp/hadoop-${hadoop_version}.tar.gz \
     && tar -xvf /tmp/hadoop-${hadoop_version}.tar.gz -C /opt \
     && rm -rf /tmp/hadoop-${hadoop_version}.ta.gz
 
@@ -42,7 +42,7 @@ ENV YARN_NODEMANAGER_USER=root
 
 
 RUN echo "export JAVA_HOME=${JAVA_HOME}" >> /etc/hadoop/hadoop-env.sh
-
+RUN echo "export HADOOP_SSH_OPTS=\"-o StrictHostKeyChecking=no\"" >> /etc/hadoop/hadoop-env.sh
 
 USER root
 

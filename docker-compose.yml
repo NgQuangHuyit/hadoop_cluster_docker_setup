@@ -23,6 +23,7 @@ services:
       context: ./datanode
       dockerfile: Dockerfile
     container_name: hadoopslave1
+    hostname: hadoopslave1
     environment:
       - "HADOOP_MASTER=hadoopmaster"
     networks:
@@ -30,6 +31,33 @@ services:
     volumes:
       - datanode1:/hadoop-data/dfs/data
 
+  hadoopslave2:
+    build: 
+      context: ./datanode
+      dockerfile: Dockerfile
+    container_name: hadoopslave2
+    hostname: hadoopslave2
+    environment:
+      - "HADOOP_MASTER=hadoopmaster"
+    networks:
+      - hadoop-cluster
+    volumes:
+      - datanode2:/hadoop-data/dfs/data
+
+  spark-client:
+    build: 
+      context: ./spark
+      dockerfile: Dockerfile
+    container_name: spark-client
+    hostname: spark-client
+    ports:
+      - 4040:4040
+      - 18080:18080
+    volumes:
+      - ./apps:/opt/spark-apps
+      - ./data:/opt/spark-data
+    networks:
+      - hadoop-cluster
 
 networks:
   hadoop-cluster:
@@ -42,4 +70,7 @@ volumes:
   datanode1:
     driver: local
     name: datanode1data
+  datanode2:
+    driver: local
+    name: datanode2data
   
