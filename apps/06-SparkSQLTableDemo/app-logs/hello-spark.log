@@ -1,0 +1,3 @@
+24/02/23 07:54:23 INFO SparkSQLTableDemo: Starting Spark SQL Table Demo
+24/02/23 07:54:33 INFO SparkSQLTableDemo: [[flight_data_tbl, spark_catalog, [airline_db], null, MANAGED, false]]
+24/02/23 07:54:33 INFO SparkSQLTableDemo: Spark SQL Table Demo Application Completed

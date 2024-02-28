@@ -1,0 +1,5 @@
+24/02/22 12:31:31 INFO SparkSchemaDemo: Starting SparkSchemaDemo...
+24/02/22 12:31:34 INFO SparkSchemaDemo: Csv Schema: struct<FL_DATE:date,OP_CARRIER:string,OP_CARRIER_FL_NUM:int,ORIGIN:string,ORIGIN_CITY_NAME:string,DEST:string,DEST_CITY_NAME:string,CRS_DEP_TIME:int,DEP_TIME:int,WHEELS_ON:int,TAXI_IN:int,CRS_ARR_TIME:int,ARR_TIME:int,CANCELLED:int,DISTANCE:int>
+24/02/22 12:31:36 INFO SparkSchemaDemo: 300000
+24/02/22 12:31:36 INFO SparkSchemaDemo: Json Schema: struct<FL_DATE:date,OP_CARRIER:string,OP_CARRIER_FL_NUM:int,ORIGIN:string,ORIGIN_CITY_NAME:string,DEST:string,DEST_CITY_NAME:string,CRS_DEP_TIME:int,DEP_TIME:int,WHEELS_ON:int,TAXI_IN:int,CRS_ARR_TIME:int,ARR_TIME:int,CANCELLED:int,DISTANCE:int>
+24/02/22 12:31:37 INFO SparkSchemaDemo: Finished SparkSchemaDemo

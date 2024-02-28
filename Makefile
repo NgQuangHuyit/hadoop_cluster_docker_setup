@@ -66,3 +66,4 @@ init: start-ssh format-hdfs
 up:  build-hadoopbase compose-up init
 
 down: compose-down
+

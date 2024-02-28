@@ -53,6 +53,7 @@ services:
     ports:
       - 4040:4040
       - 18080:18080
+      - 9922:22
     volumes:
       - ./apps:/opt/spark-apps
       - ./data:/opt/spark-data

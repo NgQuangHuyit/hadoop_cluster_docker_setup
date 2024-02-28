@@ -13,6 +13,7 @@ ENV LD_LIBRARY_PATH=$HADOOP_HOME/lib/native:$LD_LIBRARY_PATH
 RUN echo "export SPARK_DIST_CLASSPATH=$(hadoop classpath)" >> ${SPARK_HOME}/conf/spark-env.sh
 RUN mkdir /opt/spark-data /opt/spark-apps
 
-COPY  spark-defaults.conf ${SPARK_HOME}/conf/spark-defaults.conf 
+COPY  spark-defaults.conf ${SPARK_HOME}/conf/spark-defaults.conf
+WORKDIR /opt/spark-apps
 
 CMD ["tail", "-f", "/dev/null"]
